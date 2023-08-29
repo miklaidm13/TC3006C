@@ -75,10 +75,10 @@ for _ in range(num_samples):
 
 new_samples = np.array(new_samples)
 
-# Perform KNN prediction on new data points
+
 new_predictions = knn_predict(X_train, y_train, new_samples, k=3)
 
-# Print predictions for new data points
+
 for i, prediction in enumerate(new_predictions):
     print(f"Sample {i+1} predicted class:", prediction)
 

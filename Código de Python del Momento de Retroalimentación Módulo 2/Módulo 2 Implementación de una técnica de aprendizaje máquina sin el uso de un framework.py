@@ -8,7 +8,7 @@ def euclidean_distance(x1, x2):
     Entradas:
     - x1: Un punto en el espacio n-dimensional.
     - x2: Otro punto en el espacio n-dimensional.
-    
+
     Salida:
     - La distancia euclidiana entre los dos puntos.
     """
@@ -20,7 +20,7 @@ def knn_fit(X_train, y_train):
     Entradas:
     - X_train: Conjunto de datos de entrenamiento (características).
     - y_train: Etiquetas correspondientes a los datos de entrenamiento.
-    
+
     Salida:
     - X_train: Conjunto de datos de entrenamiento (características) no modificado.
     - y_train: Etiquetas correspondientes a los datos de entrenamiento no modificadas.
@@ -35,7 +35,7 @@ def knn_predict(X_train, y_train, X_test, k=3):
     - y_train: Etiquetas correspondientes a los datos de entrenamiento.
     - X_test: Conjunto de datos de prueba (características) para los que se realizarán predicciones.
     - k: El número de vecinos más cercanos a considerar para la predicción (por defecto, 3).
-    
+
     Salida:
     - predictions: Una lista de etiquetas predichas para los datos de prueba.
     """
@@ -106,6 +106,10 @@ test_ratio = 0.2
 # - y_val: Etiquetas correspondientes al conjunto de validación.
 # - y_test: Etiquetas correspondientes al conjunto de prueba.
 
+# Calcular los índices para cada conjunto
+train_split = int(train_ratio * len(X))
+val_split = int((train_ratio + val_ratio) * len(X))
+
 X_train = X[indices[:train_split]]
 X_val = X[indices[train_split:val_split]]
 X_test = X[indices[val_split:]]
@@ -166,7 +170,7 @@ k_values = [1, 3, 5, 7, 9]
 
 for k in k_values:
     print(f"\nEvaluación para k = {k}:")
-    
+
     # Realiza la predicción KNN en el conjunto de prueba con el valor de k actual
     predictions = knn_predict(X_train, y_train, X_test, k=k)
 
